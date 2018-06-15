@@ -6,8 +6,11 @@ set (Tutorial_VERSION_MINOR 0)
 # configure a header file to pass some of the CMake settings to the source code
 configure_file (
         "${CMAKE_CURRENT_SOURCE_DIR}/src/TutorialConfig.h.in"
-        "${CMAKE_CURRENT_SOURCE_DIR}/src/TutorialConfig.h"
+        "${CMAKE_CURRENT_BINARY_DIR}/src/TutorialConfig.h"
 )
+# add the binary tree to the search path for include files so that we will find TutorialConfig.h
+include_directories("${CMAKE_CURRENT_BINARY_DIR}/src")
+
 
 # add the converter library
 option (USE_CONVERTER "Use cmake-tutorial-core provided converter" ON)
