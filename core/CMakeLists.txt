@@ -27,3 +27,7 @@ file(GLOB_RECURSE core_SOURCES src/*.cpp)
 
 add_executable(cmake-tutorial-core ${core_HEADERS} ${core_SOURCES})
 target_link_libraries (cmake-tutorial-core ${EXTRA_LIBS})
+
+# add the install targets
+install(TARGETS cmake-tutorial-core DESTINATION ${CMAKE_BINARY_DIR}/bin)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/src/TutorialConfig.h DESTINATION ${CMAKE_BINARY_DIR}/include)
